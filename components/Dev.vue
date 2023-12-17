@@ -1,23 +1,26 @@
-  <script setup lang="ts">
-import croupier from '~/machines/croupier';
+<script setup lang="ts">
+import croupier from '~/machines/croupier'
 
-    const { state, send } = useMachine(croupier)
-  </script>
+const { state, send } = useMachine(croupier)
+</script>
 
 <template>
-    <div>
-    <p>ites</p>
-      <h1>Current state: {{ state.value }}</h1>
-      <h1>Current context: {{ state.context }}</h1>
-      <h1>Current actions: {{ state.actions }}</h1>
+  <div>
+    <h1>Current state: {{ state.value }}</h1>
+    <h1>Current context: {{ state.context }}</h1>
+    <h1>Current actions: {{ state.actions }}</h1>
+    <h1>Current deck card: {{ state.context.deck.numberOfCards }}</h1>
 
-      <button @click="send('deckOpenned')">
+    <button @click="send('openCardGame')">
       openDeck
-      </button>
-      <br />
-      <button @click="send('cardShuffled')">send CardShuffled</button>
-      <br />
-      <button @click="send('exitputmode')">send exitputmode</button>
-    </div>
-  </template>
-  
+    </button>
+    <br>
+    <button @click="send('cardShuffled')">
+      send CardShuffled
+    </button>
+    <br>
+    <button @click="send('exitputmode')">
+      send exitputmode
+    </button>
+  </div>
+</template>
