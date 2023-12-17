@@ -44,6 +44,9 @@ devDependencies:
   nuxt:
     specifier: ^3.7.0
     version: 3.7.0(eslint@8.48.0)(rollup@2.79.1)(typescript@5.2.2)(vue-tsc@1.8.8)
+  nuxt-xstate:
+    specifier: ^0.6.2
+    version: 0.6.2(rollup@2.79.1)(vue@3.3.4)
   pinia:
     specifier: ^2.1.6
     version: 2.1.6(typescript@5.2.2)(vue@3.3.4)
@@ -595,6 +598,7 @@ packages:
   /@babel/plugin-proposal-unicode-property-regex@7.18.6(@babel/core@7.22.11):
     resolution: {integrity: sha512-2BShG/d5yoZyXZfVePH91urL5wTG6ASZU9M4o03lKK8u8UW1y08OMttBSOADTcJrnPMpvDXRG3G8fyLh4ovs8w==}
     engines: {node: '>=4'}
+    deprecated: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-unicode-property-regex instead.
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
@@ -4164,6 +4168,27 @@ packages:
     dependencies:
       '@webassemblyjs/ast': 1.11.6
       '@xtuc/long': 4.2.2
+    dev: true
+
+  /@xstate/fsm@2.1.0:
+    resolution: {integrity: sha512-oJlc0iD0qZvAM7If/KlyJyqUt7wVI8ocpsnlWzAPl97evguPbd+oJbRM9R4A1vYJffYH96+Bx44nLDE6qS8jQg==}
+    dev: true
+
+  /@xstate/vue@2.0.0(@xstate/fsm@2.1.0)(vue@3.3.4)(xstate@4.38.2):
+    resolution: {integrity: sha512-JlrJ3d+I6rZCcFBuu3O4GP+mGJfd11O9o69wRedzPMqZ+hxcMRBsih9L5kKnJHcU9CTmdJTT172oxTaYF7thzA==}
+    peerDependencies:
+      '@xstate/fsm': ^2.0.0
+      vue: ^3.0.0
+      xstate: ^4.31.0
+    peerDependenciesMeta:
+      '@xstate/fsm':
+        optional: true
+      xstate:
+        optional: true
+    dependencies:
+      '@xstate/fsm': 2.1.0
+      vue: 3.3.4
+      xstate: 4.38.2
     dev: true
 
   /@xtuc/ieee754@1.2.0:
@@ -8244,6 +8269,21 @@ packages:
       fsevents: 2.3.3
     dev: true
 
+  /nuxt-xstate@0.6.2(rollup@2.79.1)(vue@3.3.4):
+    resolution: {integrity: sha512-EzpTteE8bXhDlgUfDFAwxEA09H4Gh2F4UvcHD/TTeuiKvz43o2gOrk6D5D9wgHrGE7YfN6DT08Od/AQ1pMCSqg==}
+    dependencies:
+      '@nuxt/kit': 3.7.0(rollup@2.79.1)
+      '@xstate/fsm': 2.1.0
+      '@xstate/vue': 2.0.0(@xstate/fsm@2.1.0)(vue@3.3.4)(xstate@4.38.2)
+      unimport: 3.2.0(rollup@2.79.1)
+      xstate: 4.38.2
+      xstate-vue2: 0.3.2(@xstate/fsm@2.1.0)(vue@3.3.4)(xstate@4.38.2)
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+      - vue
+    dev: true
+
   /nuxt@3.7.0(eslint@8.48.0)(rollup@2.79.1)(typescript@5.2.2)(vue-tsc@1.8.8):
     resolution: {integrity: sha512-y0/xHYqwuJt20r26xezjpr74FLWR144dMpwSxZ/O2XXUrQUnyO7vHm3fEY4vi+miKbf343YMH5B78GXAELO/Vw==}
     engines: {node: ^14.18.0 || >=16.10.0}
@@ -11250,6 +11290,27 @@ packages:
   /xml-name-validator@4.0.0:
     resolution: {integrity: sha512-ICP2e+jsHvAj2E2lIHxa5tjXRlKDJo4IdvPvCXbXQGdzSfmSpNVyIKMvoZHjDY9DP0zV17iI85o90vRFXNccRw==}
     engines: {node: '>=12'}
+    dev: true
+
+  /xstate-vue2@0.3.2(@xstate/fsm@2.1.0)(vue@3.3.4)(xstate@4.38.2):
+    resolution: {integrity: sha512-H+Nw/Md3T23dlB8a9wM6i+WKwoUQsBgKJycE0piYnpHy58g61tpQEI5egPBNuSS8pMij1tbMolen/hH7z653qA==}
+    peerDependencies:
+      '@xstate/fsm': ^1.0.0
+      vue: ^2.7.0
+      xstate: ^4.20.0
+    peerDependenciesMeta:
+      '@xstate/fsm':
+        optional: true
+      xstate:
+        optional: true
+    dependencies:
+      '@xstate/fsm': 2.1.0
+      vue: 3.3.4
+      xstate: 4.38.2
+    dev: true
+
+  /xstate@4.38.2:
+    resolution: {integrity: sha512-Fba/DwEPDLneHT3tbJ9F3zafbQXszOlyCJyQqqdzmtlY/cwE2th462KK48yaANf98jHlP6lJvxfNtN0LFKXPQg==}
     dev: true
 
   /xtend@4.0.2:

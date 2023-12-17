@@ -26,6 +26,7 @@
     "consola": "^3.2.3",
     "eslint": "^8.48.0",
     "nuxt": "^3.7.0",
+    "nuxt-xstate": "^0.6.2",
     "pinia": "^2.1.6",
     "typescript": "^5.2.2",
     "vue-tsc": "^1.8.8"

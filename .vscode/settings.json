@@ -1,10 +1,22 @@
 {
   "prettier.enable": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
   "files.associations": {
     "*.css": "postcss"
   },
-  "editor.formatOnSave": false
+  "editor.formatOnSave": false,
+  "cSpell.words": [
+    "iconify",
+    "nuxi",
+    "Nuxt",
+    "nuxtjs",
+    "typecheck",
+    "unocss",
+    "vite",
+    "Vitesse",
+    "vueuse",
+    "xstate"
+  ]
 }
