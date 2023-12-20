@@ -2,6 +2,14 @@
 import croupier from '~/machines/croupier'
 
 const { state, send } = useMachine(croupier)
+
+const client = useSupabaseClient()
+
+const { data: games } = await useAsyncData('games', async () => {
+  const { data } = await client.from('games').select()
+
+  return data
+})
 </script>
 
 <template>
@@ -9,6 +17,7 @@ const { state, send } = useMachine(croupier)
     <h1>Current state: {{ state.value }}</h1>
     <h1>Current context: {{ state.context }}</h1>
     <h1>Current actions: {{ state.actions }}</h1>
+    <h2>data :{{ games }}</h2>
 
     <div v-for="(slot, key) in state.context.table.slots" :key="key" flex="gap3" border="~ rounded red-700 dark:teal-700">
       <p>
