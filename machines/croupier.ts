@@ -13,7 +13,10 @@ export default createMachine({
   states: {
     StartOfTheGame: {
       on: {
-        openCardGame: 'CardDeckCreated',
+        openCardGame: {
+          target: 'CardDeckCreated',
+          actions: 'openCardGame',
+        },
       },
     },
     CardDeckCreated: {
@@ -23,27 +26,38 @@ export default createMachine({
     },
     PlaceAllCardsOnTable: {
       states: {
-        'ReadyToPlaceCardOnTable': {},
-
-        'putACardOnTable (copy)': {},
-      },
-
-      on: {
-        TableFilled: {
-          target: '.putACardOnTable (copy)',
-          cond: 'New guard',
+        ReadyToPlaceCardOnTable: {
+          on: {
+            PutACardOnTable: {
+              actions: 'PutACardOnTable',
+            },
+          },
         },
       },
-    },
+      always: {
+        target: 'WaitingForPlayer',
+        cond: 'tableIsInitialized',
+      },
 
+    },
+    WaitingForPlayer: {},
   },
 },
 {
   actions: {
-    incrementTableIndex: assign({
+    openCardGame: (ctx) => {
+      ctx.deck.openCardGame()
+    },
+    PutACardOnTable: assign({
       tableCurrentIndex: (ctx) => {
+        ctx.table.addCardOnSlot(ctx.deck.drawCard(), ctx.tableCurrentIndex)
         return ctx.tableCurrentIndex + 1
       },
     }),
+  },
+  guards: {
+    tableIsInitialized: ({ table }) => {
+      return table.isTableInitialized
+    },
   },
 })

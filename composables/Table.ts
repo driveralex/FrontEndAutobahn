@@ -14,9 +14,17 @@ export default class Table {
     this.#slots[slotNumber].push(cardToAdd)
   }
 
+  get slots() {
+    return this.#slots
+  }
+
   get numberOfCardsOnTable() {
     return this.#slots.reduce((acc, cur) => {
       return acc + cur.length
     }, 0)
+  }
+
+  get isTableInitialized() {
+    return !this.#slots.some(slot => slot.length === 0)
   }
 }

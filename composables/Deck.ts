@@ -5,14 +5,6 @@ export default class Deck {
   constructor() {
   }
 
-  debugInfo() {
-    for (const card of this.#pile)
-      // eslint-disable-next-line no-unused-expressions
-      card.debugInfo
-
-    return null
-  }
-
   get numberOfCards() {
     return this.#pile.length
   }
@@ -22,7 +14,6 @@ export default class Deck {
     for (let i = 0; i < 52; i++)
       this.#pile.push(new Card(Math.floor(i / 4), i % 4))
 
-    console.log('new deck created')
     return null
   }
 
@@ -36,7 +27,6 @@ export default class Deck {
     this.#pile = this.#pile.filter((value, index): boolean => {
       return indexCardPicked !== index
     })
-    console.log('a card is draw')
     return cardPicked
   }
 }

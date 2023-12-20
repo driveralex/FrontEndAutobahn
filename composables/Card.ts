@@ -8,8 +8,7 @@ export default class Card {
   }
 
   get debugInfo() {
-    console.log(`Card is color is ${this.computeColor()} and ${this.computeValue()}`)
-    return null
+    return `Card is: ${this.computeColor()} and ${this.computeValue()}`
   }
 
   computeColor(): string {
