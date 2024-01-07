@@ -7,7 +7,5 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div>
-    <p>aqui{{ props.card.debugInfo }}</p>
-  </div>
+  <p>{{ props.card.debugInfo }}</p>
 </template>
